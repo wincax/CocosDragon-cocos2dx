@@ -42,7 +42,9 @@ bool Explosion::onAssignCCBMemberVariable(cocos2d::CCObject * pTarget, const cha
 void Explosion::onNodeLoaded(cocos2d::CCNode * pNode, cocos2d::extension::CCNodeLoader * pNodeLoader)
 {
   CCBAnimationManager* animationManager = dynamic_cast<CCBAnimationManager*>(this->getUserObject());
-  animationManager->setDelegate(this);
+  if (animationManager) {
+    animationManager->setDelegate(this);
+  }
 }
 
 void Explosion::completedAnimationSequenceNamed(const char *name)
